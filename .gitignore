@@ -1,0 +1,26 @@
+# Secrets - never commit these
+.env
+
+# Virtual environment
+venv/
+
+# Data files - too large for Git
+data/raw/
+data/interim/
+data/processed/
+*.csv
+*.parquet
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
