@@ -1,0 +1,16 @@
+version: 2
+
+seeds:
+  - name: market_basket
+    description: Hand-maintained GLP-1 market definition. Maps each CMS brand name to a brand family, molecule, manufacturer and market segment.
+    columns:
+      - name: brand_name
+        description: CMS brand name, spelled exactly as in the source data.
+        data_tests:
+          - unique
+          - not_null
+      - name: market_segment
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['glp1_diabetes', 'glp1_obesity', 'glp1_insulin_combo']

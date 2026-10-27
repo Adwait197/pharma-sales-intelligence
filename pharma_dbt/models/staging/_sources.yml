@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw CMS files loaded by src/ingest_geography.py. Every column is stored as text, exactly as delivered.
+    schema: raw
+    tables:
+      - name: geography_drug
+        description: CMS Medicare Part D Prescribers by Geography and Drug, 2013 to 2024. One row per year, geography, brand name and generic name.
+        

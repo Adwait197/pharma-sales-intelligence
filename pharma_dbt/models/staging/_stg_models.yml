@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_geography_drug
+    description: Typed and renamed CMS geography-and-drug data. One row per year, geography, brand name and generic name. No rows removed.
+    columns:
+      - name: data_year
+        data_tests:
+          - not_null
+      - name: geo_level
+        description: National or State. Every drug has one National row plus one row per state, so never sum both levels together.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['National', 'State']
+      - name: geo_name
+        data_tests:
+          - not_null
+      - name: brand_name
+        data_tests:
+          - not_null
+      - name: total_claims
+        description: Total claims including refills. This is the TRx measure.
+        data_tests:
+          - not_null
