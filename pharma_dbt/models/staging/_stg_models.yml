@@ -15,8 +15,16 @@ models:
               arguments:
                 values: ['National', 'State']
       - name: geo_name
+        description: >
+          State name, or National. 29 state-level rows (27 in 2020, 1 in 2023,
+          1 in 2024) have no state code or name in the CMS source. They total
+          about 1,700 claims and include no GLP-1 drugs. Kept in staging,
+          excluded from state comparisons in the marts.
         data_tests:
-          - not_null
+          - not_null:
+              config:
+                warn_if: ">0"
+                error_if: ">100"
       - name: brand_name
         data_tests:
           - not_null

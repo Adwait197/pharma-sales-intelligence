@@ -60,6 +60,10 @@ Two datasets are used:
 5. **Cost is not net price.** TOT_DRUG_CST excludes manufacturer rebates, which are
    substantial and confidential in this category.
 6. **Annual grain.** No monthly seasonality is observable.
+7. **Unknown state rows.** 29 state-level rows (27 in 2020, 1 in 2023, 1 in 2024)
+   have no state code or name. They total about 1,700 claims and include no GLP-1
+   drugs. They are kept in staging, excluded from state-level comparisons, and
+   monitored by a dbt test that warns above 0 rows and fails above 100.
 
 ## Drug universe: Type 2 Diabetes
 
