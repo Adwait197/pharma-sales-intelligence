@@ -10,6 +10,7 @@ data/interim/
 data/processed/
 *.csv
 *.parquet
+!dashboard/data/*.parquet
 
 # Python
 __pycache__/
