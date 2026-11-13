@@ -15,3 +15,8 @@ One-way ANOVA (SAS PROC GLM): F(3, 47) = 6.04, p = 0.0014, R-squared = 0.28.
 Levene p = 0.74 (equal variance holds). Welch p = 0.004. Kruskal-Wallis p = 0.003.
 Tukey HSD: South > Northeast (+7.5 pts) and South > West (+5.8 pts). No other pair significant.
 Limits: neighbouring states are not fully independent; one brand and one year; the test shows where, not why.
+
+## 4. Ozempic's share does not vary by region
+Average state share 2024: South 48.7%, West 48.7%, Midwest 48.2%, Northeast 47.4%.
+One-way ANOVA: F(3, 47) = 0.20, p = 0.89, R-squared = 0.013. Welch p = 0.91. Kruskal-Wallis p = 0.86. No Tukey pair significant.
+Implication: Mounjaro's higher Southern share (finding 3) is not taken from Ozempic. Other GLP-1 brands hold 24.6% in the South against 33.4% in the Northeast, so Mounjaro's Southern gains come mainly at the expense of older brands.
