@@ -14,3 +14,20 @@ seeds:
           - accepted_values:
               arguments:
                 values: ['glp1_diabetes', 'glp1_obesity', 'glp1_insulin_combo']
+
+  - name: state_regions
+    description: US Census Bureau regions and divisions for the 50 states and DC.
+    config:
+      column_types:
+        state_fips: text
+    columns:
+      - name: state_fips
+        description: Two-digit state FIPS code, stored as text to keep the leading zero.
+        data_tests:
+          - unique
+          - not_null
+      - name: census_region
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Northeast', 'Midwest', 'South', 'West']

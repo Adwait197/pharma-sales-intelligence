@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: fct_glp1_brand_state_year
+    description: >
+      GLP-1 volume, cost, writers and market share by brand family, state and year.
+      One row per year, state and brand family. 50 states and DC only, with US Census region and division.
+      writers_low and writers_high bound the true writer count when a brand family
+      combines several CMS brand names (cms_names_combined > 1); otherwise they are equal and exact.
+    columns:
+      - name: data_year
+        data_tests: [not_null]
+      - name: state_fips
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('state_regions')
+                field: state_fips
+      - name: state_name
+        data_tests: [not_null]
+      - name: census_region
+        description: US Census Bureau region (Northeast, Midwest, South, West).
+        data_tests: [not_null]
+      - name: brand_family
+        data_tests: [not_null]
+      - name: market_segment
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['glp1_diabetes', 'glp1_obesity', 'glp1_insulin_combo']
+      - name: trx
+        description: Total prescriptions including refills (TRx).
+        data_tests: [not_null]
+
+  - name: fct_glp1_brand_national_year
+    description: >
+      GLP-1 national volume, cost, writers, market share and year-over-year growth
+      by brand family and year. Uses CMS national rows as published.
+    columns:
+      - name: data_year
+        data_tests: [not_null]
+      - name: brand_family
+        data_tests: [not_null]
+      - name: trx
+        data_tests: [not_null]
